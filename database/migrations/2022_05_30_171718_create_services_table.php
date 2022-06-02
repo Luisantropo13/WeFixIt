@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('services', function (Blueprint $table) {
+            $table->id('serviceId')->unique();
+            $table->float('servicePrice');
+            $table->text('serviceDescription');
+            $table->enum('serviceType',['Network Install','Repair','Advice']);
+            $table->string('serviceImg');
+            $table->foreignId('companyId');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('services');
+    }
+};
