@@ -1,38 +1,21 @@
 <?php
+use Illuminate\Http\Request;
 
 use App\HTTP\Controllers\ProductController;
 use App\HTTP\Controllers\BusinessController;
 use App\HTTP\Controllers\ContactController;
 use App\HTTP\Controllers\ServiceController;
 use App\HTTP\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BillController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Route::get('/', 'PageController@home');
-
+// Views
 Route::get('/', function () {
-    return HomeController::items();
-    return HomeController::services();
-    return HomeController::businesses();
-    return HomeController::reviews();
-})->name('home');
-
-// Route::get('/home', 'HomeController@home');
-
-Route::get('/home', function () {
-    return view('home');
+    return HomeController::home();
 })->name('home');
 
 Route::get('/product', function () {
@@ -47,43 +30,49 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-// Route::get('/business/{name?}', 'BusinessController@business');
-
 Route::get('/business', function () {
-    [ProductController::class.'items'];
-    return view('business');
+    return BusinessController::companies();
 })->name('business');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
 
 Route::get('/admin',function(){
     return view('dashboard');
 })->name('dashboard');
 
+//Login
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('workerLogin',[LoginController::class,'workerLogin']);
+
+Route::get('/logout',function(){
+    if(session()->has('worker')){
+        session()->pull('worker');
+    }
+   return redirect('home');
+});
 
 //Dashboards parts
 
 Route::get('/admin/client',function(){
-    return view('dashboard/dashclient');
+    return ContactController::dashclient();
 })->name('dashclient');
 
 Route::get('/admin/bill',function(){
-    return view('dashboard/dashbill');
+    return BillController::dashbill();
 })->name('dashbill');
 
 Route::get('/admin/company',function(){
-    return view('dashboard/dashcompany');
-})->name('dashcompnay');
+    return BusinessController::dashcompanies();
+})->name('dashcompany');
 
 Route::get('/admin/product',function(){
-    return view('dashboard/dashproduct');
+    return ProductController::dashproduct();
 })->name('dashproduct');
 
 Route::get('/admin/review',function(){
-    return view('dashboard/dashreview');
+    return ReviewController::dashreview();
 })->name('dashreview');
 
 Route::get('/admin/service',function(){
@@ -91,7 +80,7 @@ Route::get('/admin/service',function(){
 })->name('dashservice');
 
 Route::get('/admin/workers',function(){
-    return view('dashboard/dashworkers');
+    return ContactController::dashworker();
 })->name('dashworkers');
 
 //Add info part
@@ -127,3 +116,39 @@ Route::get('/admin/addInfo/serviceAddInfo',function(){
 Route::get('/admin/addInfo/workerAddInfo',function(){
     return view('formviews/workerform');
 })->name('workerform');
+
+//POST
+// Route::post('/addWorker',function(){
+//     return DashboardController::addWorker($req);
+// })->name('addWorker');
+
+
+Route::get('admin/companyDelete',function(Request $req){
+    $data = $req->input();
+    return BusinessController::deleteController($data['companyId']);
+});
+
+Route::get('admin/clientDelete',function(Request $req){
+    $data = $req->input();
+    return ContactController::clientDelete($data['clientId']);
+});
+
+Route::get('admin/workerDelete',function(Request $req){
+    $data = $req->input();
+    return ContactController::workerDelete($data['workerId']);
+});
+
+Route::get('admin/productDelete',function(Request $req){
+    $data = $req->input();
+    return ProductController::productDelete($data['productId']);
+});
+
+Route::get('admin/reviewDelete',function(Request $req){
+    $data = $req->input();
+    return ReviewController::reviewDelete($data['reviewId']);
+});
+
+Route::get('admin/billDelete',function(Request $req){
+    $data = $req->input();
+    return BillController::billDelete($data['billId']);
+});

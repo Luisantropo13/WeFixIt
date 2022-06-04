@@ -26,7 +26,8 @@
     <!-- Pills content -->
     <div class="tab-content">
         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-            <form>
+            <form method="post" action="workerLogin">
+                @csrf
                 <div class="text-center mb-3">
                     <p>Sign in with:</p>
                     <button type="button" class="btn btn-link btn-floating mx-1">
@@ -50,13 +51,13 @@
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="email" id="loginName" class="form-control" />
+                    <input name="workerEmail" type="email" id="loginName" class="form-control" />
                     <label class="form-label" for="loginName">Email or username</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="loginPassword" class="form-control" />
+                    <input name="workerPass" type="password" id="loginPassword" class="form-control" />
                     <label class="form-label" for="loginPassword">Password</label>
                 </div>
 

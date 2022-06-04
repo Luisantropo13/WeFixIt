@@ -1,46 +1,62 @@
-@extends('components/addinfo')
+<!DOCTYPE html>
+<html lang="en">
 
-@section ('formview')
-<h1>Add Info to Clients</h1>
-<form>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+</head>
 
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Name</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Email</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Pass</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Pass">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Phone</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Number">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Adress</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Adress">
-    </div>
-
-
-    <div class="it-datepicker-wrapper theme-dark">
+<body style="color:white;">
+    @extends('../components/plantilla')
+    <div id="dashback"></div>
+    @section ('seccion')
+    <h1>Add Info to Clients</h1>
+    <a href="{{ route('dashclient')}}" class="btn btn-primary">Go back</a>
+    <form action="{{}}" method="POST">
+        @csrf
         <div class="form-group">
-            <label for="date2">Date label</label>
-            <input class="form-control it-date-datepicker" id="date2" type="text" placeholder="inserisci la data in formato gg/mm/aaaa">
+            <label>Name</label>
+            <input name="clientName" type="text" class="form-control" placeholder="Name">
         </div>
-    </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input name="clientEmail" type="email" class="form-control" placeholder="Email@email.com">
+        </div>
+
+        <div class="form-group">
+            <label>Pass</label>
+            <input name="clientPass" type="password" class="form-control" placeholder="Pass">
+        </div>
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input name="clientPhone" type="text" class="form-control" placeholder="xxx xxx xxxx">
+        </div>
+
+        <div class="form-group">
+            <label>Adress</label>
+            <input name="clientAdress" type="text" class="form-control" placeholder="Street Fake xxx">
+        </div>
 
 
-    <div class="form-group">
-        <label class="form-label" for="customFile">Photo</label>
-        <input type="file" class="form-control" id="customFile" />
-    </div>
-</form>
-@endsection
+        <div class="it-datepicker-wrapper theme-dark">
+            <div class="form-group">
+                <label>Date</label>
+                <input name="clientBornDate" class="form-control it-date-datepicker"  type="date" placeholder="dd/mm/aaaa">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Photo</label>
+            <input name="clientPhoto" type="file" class="form-control" id="customFile" />
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Add</button>
+    </form>
+    @endsection
+</body>
+
+</html>

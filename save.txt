@@ -1,55 +1,59 @@
-<div id="contact" class="row" style="padding:15px;">
-                <div class="col-3" id="data" style="background-color:black; color:white;">
-                    <div id="businessinfo">
-                        <h5> Information</h5><br>
-                        <span>
-                            Contact Number: +39 xxx xxx xxxx <br>
-                            Contact Mail: fakemail@wefixit.com <br>
-                            Direction: Invented Street Nº 123 <br>
-                            <br>
-                            Schedule: <br>
-                            <br>
-                            Monday-Saturday <br>
-                            09:00-14:00 17:00-19:30 <br>
-                            Sundays <br>
-                            No Working <br>
-                        </span>
-                    </div>
-                </div>
+<h1>Add Info to Workers</h1>
+<form>
 
-                <div class="col-9" id="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3139.919328933414!2d15.63549121511262!3d38.09554150141282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13145bd8a2636821%3A0x3c561818b61ab654!2sPhone%20Hub!5e0!3m2!1ses!2sit!4v1653984058925!5m2!1ses!2sit" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
 
-            <div id="review" style="background-color:black; width:100%; padding:15px;">
-                <div id="cuestionario" style=" color:white; ">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Email</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Email</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Poner la hora actual aqui">
+    </div>
 
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Password</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Puntuation</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Review</label>
-                            <textarea style="min-height:350px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Pass</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
 
-            </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Work Place</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Network Installer</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Advisor</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Repairman</label>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Phone</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Adress</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Poner la hora actual aqui">
+    </div>
+
+
+    <div class="it-datepicker-wrapper theme-dark">
+        <div class="form-group">
+            <label for="date2">Date label</label>
+            <input class="form-control it-date-datepicker" id="date2" type="text" placeholder="inserisci la data in formato gg/mm/aaaa">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-label" for="customFile">Photo</label>
+        <input type="file" class="form-control" id="customFile" />
+    </div>
+</form>

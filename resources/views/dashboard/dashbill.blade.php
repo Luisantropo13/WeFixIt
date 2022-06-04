@@ -41,34 +41,20 @@
                 <th scope="col">Payment Method</th>
                 <th scope="col">Client</th>
                 <th scope="col"> </th>
-                <th scope="col"><a href="{{ route('addinfo')}}" class="btn btn-success">Add</a></th>
+                <th scope="col"><a href="{{ route('billform')}}" class="btn btn-success">Add</a></th>
             </tr>
         </thead>
         <tbody>
+            @foreach($bills as $bill)
             <tr>
-                <th scope="row">1</th>
-                <td>01/01/1999</td>
-                <td>Paypal</td>
-                <td>Luis</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <th scope="row">{{$bill->billId}}</th>
+                <td>{{$bill->billDate}}</td>
+                <td>{{$bill->billPayment}}</td>
+                <td>{{$bill->clientId}}</td>
+                <td><a href="{{ route('workerform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="billDelete?billId={{$bill->billId}}" class="btn btn-danger">Delete</a></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>01/01/1999</td>
-                <td>Paypal</td>
-                <td>Luis</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>01/01/1999</td>
-                <td>Paypal</td>
-                <td>Luis</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
     @endsection

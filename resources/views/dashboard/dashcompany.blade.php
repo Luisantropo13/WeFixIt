@@ -24,40 +24,22 @@
                 <th scope="col">Webpage</th>
                 <th scope="col">Description</th>
                 <th scope="col">Logo</th>
-                <th scope="col"><a href="{{ route('addinfo')}}" class="btn btn-success">Add</a></th>
+                <th scope="col"><a href="{{ route('companyform')}}" class="btn btn-success">Add</a></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Phonehub</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>www.fakepage.com</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Phonehub</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>www.fakepage.com</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Phonehub</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>www.fakepage.com</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
+            @foreach($business as $company)
+                <tr>
+                    <th scope="row">{{$company->companyId}}</th>
+                    <td>{{$company->companyName}}</td>
+                    <td>{{$company->companyPhone}}</td>
+                    <td>{{$company->companyAdress}}</td>
+                    <td>{{$company->companyWeb}}</td>
+                    <td>{{$company->companyLogo}}</td>
+                    <td><a href="{{ route('companyform')}}" class="btn btn-warning">Modify</a></td>
+                    <td><a href="companyDelete?companyId={{$company->companyId}}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
     @endsection

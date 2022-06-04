@@ -26,46 +26,24 @@
                 <th scope="col">Work Place</th>
                 <th scope="col">Photo</th>
                 <th scope="col"> </th>
-                <th scope="col"><a href="{{ route('addinfo')}}" class="btn btn-success">Add</a></th>
+                <th scope="col"><a href="{{ route('workerform')}}" class="btn btn-success">Add</a></th>
             </tr>
         </thead>
         <tbody>
+            @foreach($workers as $worker)
             <tr>
-                <th scope="row">1</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>Master</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <th scope="row">{{$worker->workerId}}</th>
+                <td>{{$worker->workerName}}</td>
+                <td>{{$worker->workerEmail}}</td>
+                <td>{{$worker->workerPhone}}</td>
+                <td>{{$worker->workerAdres}}</td>
+                <td>{{$worker->workerBornDate}}</td>
+                <td>{{$worker->workerPlace}}</td>
+                <td>{{$worker->workerPhoto}}</td>
+                <td><a href="{{ route('workerform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="workerDelete?workerId={{$worker->workerId}}" class="btn btn-danger">Delete</a></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>Master</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>Master</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
     @endsection

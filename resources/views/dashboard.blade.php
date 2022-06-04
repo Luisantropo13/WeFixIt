@@ -28,7 +28,7 @@
     <h1 style="color:white;">Dashboard</h1>
     <div id="main" style="padding:15px; text-align:center;">
         <div class="row fila">
-            <div class="card col-3">
+            <div class="card col-4">
                 <div class="card-body">
                     <h2 class="card-title">
                         Clients
@@ -36,7 +36,7 @@
                     <a href="{{ route('dashclient')}}" class="btn btn-primary">Go to Clients Dashboard</a>
                 </div>
             </div>
-            <div class="card col-3">
+            <div class="card col-4">
                 <div class="card-body">
                     <h2 class="card-title">
                         Products
@@ -44,15 +44,15 @@
                     <a href="{{ route('dashproduct')}}" class="btn btn-primary">Go to Products Dashboard</a>
                 </div>
             </div>
-            <div class="card col-3">
+            <!-- <div class="card col-3">
                 <div class="card-body">
                     <h2 class="card-title">
                         Services
                     </h2>
                     <a href="{{ route('dashservice')}}" class="btn btn-primary">Go to Services Dashboard</a>
                 </div>
-            </div>
-            <div class="card col-3">
+            </div> -->
+            <div class="card col-4">
                 <div class="card-body">
                     <h2 class="card-title">
                         Workers
@@ -60,15 +60,15 @@
                     <a href="{{ route('dashworkers')}}" class="btn btn-primary">Go to Workers Dashboard</a>
                 </div>
             </div>
-            <div class="card col-3">
+            <div class="card col-4">
                 <div class="card-body">
                     <h2 class="card-title">
                         Companies
                     </h2>
-                    <a href="{{ route('dashcompnay')}}" class="btn btn-primary">Go to Companies Dashboard</a>
+                    <a href="{{ route('dashcompany')}}" class="btn btn-primary">Go to Companies Dashboard</a>
                 </div>
             </div>
-            <div class="card col-3">
+            <div class="card col-4">
                 <div class="card-body">
                     <h2 class="card-title">
                         Reviews
@@ -76,7 +76,7 @@
                     <a href="{{ route('dashreview')}}" class="btn btn-primary">Go to Reviews Dashboard</a>
                 </div>
             </div>
-            <div class="card col-3">
+            <div class="card col-4">
                 <div class="card-body">
                     <h2 class="card-title">
                         Bills

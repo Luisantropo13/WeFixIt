@@ -25,43 +25,23 @@
                 <th scope="col">Born Date</th>
                 <th scope="col">Photo</th>
                 <th scope="col"> </th>
-                <th scope="col"><a href="{{ route('addinfo')}}" class="btn btn-success">Add</a></th>
+                <th scope="col"><a href="{{ route('clientform')}}" class="btn btn-success">Add</a></th>
             </tr>
         </thead>
         <tbody>
+            @foreach($clients as $client)
             <tr>
-                <th scope="row">1</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <th scope="row">{{$client->clientId}}</th>
+                <td>{{$client->clientName}}</td>
+                <td>{{$client->clientEmail}}</td>
+                <td>{{$client->clientPhone}}</td>
+                <td>{{$client->clientAdress}}</td>
+                <td>{{$client->clientBornDate}}</td>
+                <td>{{$client->clientPhoto}}</td>
+                <td><a href="{{ route('clientform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="clientDelete?clientId={{$client->clientId}}" class="btn btn-danger">Delete</a></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
     @endsection

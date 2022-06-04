@@ -22,34 +22,20 @@
                 <th scope="col">Content</th>
                 <th scope="col">Client</th>
                 <th scope="col"> </th>
-                <th scope="col"><a href="{{ route('addinfo')}}" class="btn btn-success">Add</a></th>
+                <th scope="col"><a href="{{ route('reviewform')}}" class="btn btn-success">Add</a></th>
             </tr>
         </thead>
         <tbody>
+            @foreach($reviews as $review)
             <tr>
-                <th scope="row">1</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <th scope="row">{{$review->reviewId}}</th>
+                <td>{{$review->reviewDate}}</td>
+                <td>{{$review->reviewContent}}</td>
+                <td>{{$review->clientId}}</td>
+                <td><a href="{{ route('reviewform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="reviewDelete?reviewId={{$review->reviewId}}" class="btn btn-danger">Delete</a></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
     @endsection

@@ -26,46 +26,26 @@
                 <th scope="col">Description</th>
                 <th scope="col">Photo</th>
                 <th scope="col"> </th>
-                <th scope="col"><a href="{{ route('addinfo')}}" class="btn btn-success">Add</a></th>
+                <th scope="col"><a href="{{ route('productform')}}" class="btn btn-success">Add</a></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>Master</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>Master</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Luis</td>
-                <td>luis@wefixit.com</td>
-                <td>666666666</td>
-                <td>fake street 123</td>
-                <td>01/01/1999</td>
-                <td>Master</td>
-                <td>xd</td>
-                <td><button type="button" class="btn btn-warning">Modify</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
+            @foreach($products as $product)
+                <tr>
+                    <th scope="row">{{$product->productId}}</th>
+                    <td>{{$product->productModel}}</td>
+                    <td>{{$product->productBrand}}</td>
+                    <td>{{$product->productPrice}}</td>
+                    <td>{{$product->productStatus}}</td>
+                    <td>{{$product->productCategory}}</td>
+                    <td>{{$product->productDescription}}</td>
+                    <td>{{$product->productStock}}</td>
+                    <td>{{$product->productImg}}</td>
+                    <td><a href="{{ route('productform')}}" class="btn btn-warning">Modify</a></td>
+                    <td><a href="productDelete?productId={{$product->productId}}" class="btn btn-danger">Delete</a></td>
+                </tr>
+            @endforeach
+            
         </tbody>
     </table>
     @endsection

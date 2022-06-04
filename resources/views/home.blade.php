@@ -59,10 +59,6 @@
             width: 100%;
             height: 100%;
         }
-
-        .rev{
-            paf
-        }
     </style>
 </head>
 
@@ -140,22 +136,21 @@
                 <h2>Empresas</h2>
                 <div style="text-align:center;">
                     <div class="row fila">
-                  
+
                         @foreach($business as $company)
-                            <div class="card col-3">
-                                <img class="card-img-top" src="{{$company->companyLogo}}" alt="Card image cap">
-                            
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        {{$company->companyName}}
-                                    </h5>
-                                    <p class="card-text">
-                                        {{$company->companyDescription}}
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
+                        <div class="card col-3">
+                            <img class="card-img-top" src="{{$company->companyLogo}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{$company->companyName}}
+                                </h5>
+                                <p class="card-text">
+                                    {{$company->companyDescription}}
+                                </p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
-                        @endforeach 
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -206,7 +201,7 @@
                                 <option>5</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Review</label>
                             <textarea style="min-height:350px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -217,29 +212,13 @@
 
                 <div id="reviews" style="color:white; text-align:center;">
                     <div class="row">
+                        @foreach($reviews as $review)
                         <div class="rev col-6">
-                            <span>Name</span>
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                            <span>Date</span>
+                            <span>{{$review->clientId}}</span>
+                            <p>{{$review->reviewContent}}</p>
+                            <span>{{$review->reviewDate}}</span>
                         </div>
-
-                        <div class="rev col-6">
-                            <span>Name</span>
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                            <span>Date</span>
-                        </div>
-
-                        <div class="rev col-6">
-                            <span>Name</span>
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                            <span>Date</span>
-                        </div>
-
-                        <div class="rev col-6">
-                            <span>Name</span>
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                            <span>Date</span>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 

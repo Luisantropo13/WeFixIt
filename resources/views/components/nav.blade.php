@@ -26,7 +26,15 @@
 
                 <div id="login" class="col-2">
                     <form class="navbt form-inline col-1">
-                        <a href="{{ route('login')}}" class="btn btn-outline-secondary">Login/Register</a>
+                        <?php
+                            session_start();
+                            if(!array_key_exists( "workerEmail" , $_SESSION ))
+                            {
+                                ?><a href="{{ route('login')}}" class="btn btn-outline-secondary">Login/Register</a><?php
+                            }else{
+                                ?><a href="{{route('dashboard')}}" class="btn btn-outline-secondary">Profile</a><?php
+                            }
+                        ?>
                     </form>
                 </div>
             </nav>

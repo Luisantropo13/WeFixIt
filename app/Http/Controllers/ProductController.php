@@ -12,4 +12,14 @@ class ProductController extends Controller
         $items = Product::all();
         return view('itemShop',compact('items'));
     }
+
+    public static function dashproduct(){
+        $products = Product::all();
+        return view('dashboard/dashproduct',compact('products'));
+    }
+
+    public static function productDelete($id){
+        Product::productDelete($id);
+        return redirect('/admin/product');
+    }
 }
