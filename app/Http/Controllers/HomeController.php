@@ -17,5 +17,12 @@ class HomeController extends Controller
         return view('home',compact('items','business','reviews'));
     }
 
+    public static function welcome()
+    {
+        $items = Product::all();
+        $business = Company::all();  
+        $reviews = Review::all();
+        return view('welcome',compact('items','business','reviews'));
+    }
     
 }

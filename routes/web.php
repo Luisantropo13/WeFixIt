@@ -18,6 +18,10 @@ Route::get('/', function () {
     return HomeController::home();
 })->name('home');
 
+Route::get('/welcome', function () {
+    return HomeController::welcome();
+})->name('welcome');
+
 Route::get('/product', function () {
     return ProductController::items();
 })->name('product');
