@@ -44,7 +44,7 @@
 
         <div class="it-datepicker-wrapper theme-dark">
             <div class="form-group">
-                <label>Date label</label>
+                <label>Date</label>
                 <input name="workerBornDate" class="form-control it-date-datepicker" type="date" placeholder="dd/mm/aaaa">
             </div>
         </div>
