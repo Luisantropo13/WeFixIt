@@ -14,11 +14,13 @@
     @section ('seccion')
     <h1>Add Info to Bills</h1>
     <a href="{{ route('dashbill')}}" class="btn btn-primary">Go back</a>
-    <form action="/admin/billAdd" method="POST">
+    <form action="/admin/billmodadd" method="POST">
         @csrf
+        <input name="billId" type="hidden" value="{{$bilmod->billId}}">
+
         <div class="form-group">
             <label>Date</label>
-            <input name="billDate" type="date" class="form-control" placeholder="dd/mm/aaaa">
+            <input name="billDate" type="date" class="form-control" placeholder="name@example.com" value="{{$bilmod->billDate}}">
         </div>
 
         <div class="form-group">
@@ -39,7 +41,7 @@
 
         <div class="form-group">
             <label>Client</label>
-            <input name="clientId" type="text" class="form-control" placeholder="Id number of Client">
+            <input name="clientId" type="text" class="form-control" value="{{$bilmod->clientId}}">
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Add</button>

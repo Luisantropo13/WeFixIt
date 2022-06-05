@@ -14,39 +14,23 @@
     @section ('seccion')
     <h1>Add Info to Workers</h1>
     <a href="{{ route('dashworkers')}}" class="btn btn-primary">Go back</a>
-    <form action="/admin/workerAdd" method="POST">
+    <form action="/admin/workermodadd" method="POST">
         @csrf
+        <input name="workerId" type="hidden" value="{{$wormod->workerId}}">
+
         <div class="form-group">
             <label>Name</label>
-            <input name="workerName" type="text" class="form-control" placeholder="name">
+            <input name="workerName" type="text" class="form-control" placeholder="name" value="{{$wormod->workerName}}">
         </div>
 
         <div class="form-group">
             <label >Email</label>
-            <input name="workerEmail" type="email" class="form-control" placeholder="example@example.com">
+            <input name="workerEmail" type="email" class="form-control" placeholder="example@example.com" value="{{$wormod->workerEmail}}">
         </div>
 
         <div class="form-group">
             <label >Pass</label>
-            <input name="workerPass" type="password" class="form-control" placeholder="pass">
-        </div>
-
-        <div class="form-group">
-            <label>Phone</label>
-            <input name="workerPhone" type="text" class="form-control" placeholder="+xx xxx xxx xxxx">
-        </div>
-
-        <div class="form-group">
-            <label>Adress</label>
-            <input name="workerAdress" type="text" class="form-control" placeholder="Street Example xxx">
-        </div>
-
-
-        <div class="it-datepicker-wrapper theme-dark">
-            <div class="form-group">
-                <label>Date label</label>
-                <input name="workerBornDate" class="form-control it-date-datepicker" type="date" placeholder="dd/mm/aaaa">
-            </div>
+            <input name="workerPass" type="password" class="form-control" placeholder="pass" value="{{$wormod->workerPass}}">
         </div>
 
         <div class="form-group">
@@ -60,7 +44,7 @@
                 <label class="form-check-label" for="inlineCheckbox1">Network Installer</label>
             </div>
             <div class="form-check form-check-inline">
-                <input name="workerPlace" class="form-check-input" type="checkbox" value="Adviser">
+                <input name="workerPlace" class="form-check-input" type="checkbox" value="Advisor">
                 <label class="form-check-label" for="inlineCheckbox2">Advisor</label>
             </div>
             <div class="form-check form-check-inline">
@@ -69,10 +53,29 @@
             </div>
 
         </div>
-        
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input name="workerPhone" type="text" class="form-control" placeholder="+xx xxx xxx xxxx" value="{{$wormod->workerPhone}}">
+        </div>
+
+        <div class="form-group">
+            <label>Adress</label>
+            <input name="workerAdress" type="text" class="form-control" placeholder="Street Example xxx" value="{{$wormod->workerAdress}}">
+        </div>
+
+
+        <div class="it-datepicker-wrapper theme-dark">
+            <div class="form-group">
+                <label>Date label</label>
+                <input name="workerBornDate" class="form-control it-date-datepicker" type="date" placeholder="dd/mm/aaaa" value="{{$wormod->workerBornDate}}">
+            </div>
+        </div>
+
+
         <div class="form-group">
             <label>Photo</label>
-            <input name="workerPhoto" type="file" class="form-control" placeholder="Photo" />
+            <input name="workerPhoto" type="file" class="form-control" placeholder="Photo" value="{{$wormod->workerPhoto}}" />
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Add</button>

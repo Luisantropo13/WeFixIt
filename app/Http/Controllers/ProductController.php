@@ -22,4 +22,44 @@ class ProductController extends Controller
         Product::productDelete($id);
         return redirect('/admin/product');
     }
+
+    public static function productAdd(Request $req)
+    {
+        $data = $req->input();
+        Product::addProduct(
+            $data['productModel'],
+            $data['productBrand'],
+            $data['productPrice'],
+            $data['productStatus'],
+            $data['productCategory'],
+            $data['productDescription'],
+            $data['productStock'],
+            $data['productImg']
+        );
+        return redirect('/admin/product');
+    }
+
+    public static function productModifyRead($id)
+    {
+        return view('formodify/productmod', [
+            "promod" => Product::getProductById($id)
+        ]);
+    }
+
+    public static function productModifyWrite(Request $req)
+    {
+        $data = $req->input();
+        Product::modifyProduct(
+            $data['productId'],
+            $data['productModel'],
+            $data['productBrand'],
+            $data['productPrice'],
+            $data['productStatus'],
+            $data['productCategory'],
+            $data['productDescription'],
+            $data['productStock'],
+            $data['productImg']
+        );
+        return redirect('/admin/product');
+    }
 }

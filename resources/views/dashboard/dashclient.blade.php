@@ -14,7 +14,7 @@
     @section ('seccion')
     <h1>Dashboard Client</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
-    <table class="table">
+    <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -38,7 +38,7 @@
                 <td>{{$client->clientAdress}}</td>
                 <td>{{$client->clientBornDate}}</td>
                 <td>{{$client->clientPhoto}}</td>
-                <td><a href="{{ route('clientform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="/admin/clientmod?clientId={{$client->clientId}}" class="btn btn-warning">Modify</a></td>
                 <td><a href="clientDelete?clientId={{$client->clientId}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach

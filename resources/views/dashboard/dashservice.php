@@ -14,7 +14,7 @@
     @section ('seccion')
     <h1>Dashboard Product</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
-    <table class="table">
+    <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
                 <th scope="col">Id</th>

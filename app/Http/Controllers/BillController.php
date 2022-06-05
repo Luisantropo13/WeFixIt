@@ -16,4 +16,34 @@ class BillController extends Controller
         Bill::billDelete($id);
         return redirect('/admin/bill');
     }
+
+    public static function billAdd(Request $req)
+    {
+        $data = $req->input();
+        Bill::addBill(
+            $data['billDate'],
+            $data['billPayment'],
+            $data['clientId']
+        );
+        return redirect('/admin/bill');
+    }
+
+    public static function billModifyRead($id)
+    {
+        return view('formodify/billmod', [
+            "bilmod" => Bill::getBillById($id)
+        ]);
+    }
+
+    public static function billModifyWrite(Request $req)
+    {
+        $data = $req->input();
+        Bill::modifyBill(
+            $data['billId'],
+            $data['billDate'],
+            $data['billPayment'],
+            $data['clientId']
+        );
+        return redirect('/admin/bill');
+    }
 }

@@ -14,7 +14,7 @@
     @section ('seccion')
     <h1>Dashboard Workers</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
-    <table class="table">
+    <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -40,7 +40,7 @@
                 <td>{{$worker->workerBornDate}}</td>
                 <td>{{$worker->workerPlace}}</td>
                 <td>{{$worker->workerPhoto}}</td>
-                <td><a href="{{ route('workerform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="/admin/workermod?workerId={{$worker->workerId}}" class="btn btn-warning">Modify</a></td>
                 <td><a href="workerDelete?workerId={{$worker->workerId}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach

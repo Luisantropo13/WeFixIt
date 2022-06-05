@@ -21,7 +21,22 @@ class Worker extends Model
         DB::delete("DELETE FROM workers WHERE workerId = '$id'");
     }
 
-    public static function workerModify($id){
-        DB::select("SELECT FROM workers WHERE workerId = '$id'");
+    
+    public static function getWorkerById($id){
+        return DB::select("SELECT * FROM workers WHERE workerId = '$id'")[0];
+    }
+
+    public static function addWorker($name,$email,$pass,$phone,$adress,$bornDate,$place,$img){
+        DB::insert("INSERT INTO workers (workerName, workerEmail, workerPass, workerPhone, workerAdress, workerBornDate, workerPlace, workerPhoto) 
+                    VALUES ('$name', '$email', '$pass','$phone','$adress','$bornDate','$place'.'$img')");
+    }
+
+    public static function modifyWorker($id,$name,$email,$pass,$phone,$adress,$bornDate,$place,$img){
+        DB::update("UPDATE workers SET workerId='$id', workerName='$name', 
+                                        workerEmail='$email', workerPass='$pass',
+                                        workerPhone='$phone', workerAdress='$adress',
+                                        workerBornDate='$bornDate',workerPlace='$place',
+                                        workerPhoto='$img' 
+                                    WHERE workerId='$id'");
     }
 }

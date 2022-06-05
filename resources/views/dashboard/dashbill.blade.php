@@ -33,7 +33,7 @@
     <h1>Dashboard Bill</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
 
-    <table class="table" style="color:white;">
+    <table class="table" style="width:80vw; margin-left:-50px;" ">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -51,7 +51,7 @@
                 <td>{{$bill->billDate}}</td>
                 <td>{{$bill->billPayment}}</td>
                 <td>{{$bill->clientId}}</td>
-                <td><a href="{{ route('workerform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="/admin/billmod?billId={{$bill->billId}}" class="btn btn-warning">Modify</a></td>
                 <td><a href="billDelete?billId={{$bill->billId}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach

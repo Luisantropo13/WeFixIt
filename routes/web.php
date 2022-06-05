@@ -122,7 +122,7 @@ Route::get('/admin/addInfo/workerAddInfo',function(){
 //     return DashboardController::addWorker($req);
 // })->name('addWorker');
 
-
+//DELETES
 Route::get('admin/companyDelete',function(Request $req){
     $data = $req->input();
     return BusinessController::deleteController($data['companyId']);
@@ -152,3 +152,87 @@ Route::get('admin/billDelete',function(Request $req){
     $data = $req->input();
     return BillController::billDelete($data['billId']);
 });
+
+
+
+//ADDS
+Route::post('admin/companyAdd',function(Request $req){
+    return BusinessController::companyAdd($req);
+});
+
+Route::post('admin/billAdd',function(Request $req){
+    return BillController::billAdd($req);
+});
+
+Route::post('admin/clientAdd',function(Request $req){
+    return ContactController::clientAdd($req);
+});
+
+Route::post('admin/workerAdd',function(Request $req){
+    return ContactController::workerAdd($req);
+});
+
+Route::post('admin/productAdd',function(Request $req){
+    return ProductController::productAdd($req);
+});
+
+Route::post('admin/reviewAdd',function(Request $req){
+    return ReviewController::reviewAdd($req);
+});
+
+
+//ModifyRead
+Route::get('/admin/companymod',function(Request $req){
+    $busmod = $req->input();
+    return BusinessController::companyModifyRead($busmod['companyId']);
+})->name('companymod');
+
+Route::get('/admin/billmod',function(Request $req){
+    $bilmod = $req->input();
+    return BillController::billModifyRead($bilmod['billId']);
+})->name('billmod');
+
+Route::get('/admin/clientmod',function(Request $req){
+    $climod = $req->input();
+    return ContactController::clientModifyRead($climod['clientId']);
+})->name('clientmod');
+
+Route::get('/admin/workermod',function(Request $req){
+    $wormod = $req->input();
+    return ContactController::workerModifyRead($wormod['workerId']);
+})->name('workermod');
+
+Route::get('/admin/productmod',function(Request $req){
+    $promod = $req->input();
+    return ProductController::productModifyRead($promod['productId']);
+})->name('productmod');
+
+Route::get('/admin/reviewmod',function(Request $req){
+    $revmod = $req->input();
+    return ReviewController::reviewModifyRead($revmod['reviewId']);
+})->name('reviewmod');
+
+//Modify
+Route::post('/admin/companymodadd',function(Request $req){
+    return BusinessController::companyModifyWrite($req);
+})->name('companymodwrite');
+
+Route::post('/admin/billmodadd',function(Request $req){
+    return BillController::billModifyWrite($req);
+})->name('billmodwrite');
+
+Route::post('/admin/clientmodadd',function(Request $req){
+    return ContactController::clientModifyWrite($req);
+})->name('clientmodwrite');
+
+Route::post('/admin/workermodadd',function(Request $req){
+    return ContactController::workerModifyWrite($req);
+})->name('workermodwrite');
+
+Route::post('/admin/productmodadd',function(Request $req){
+    return ProductController::productModifyWrite($req);
+})->name('productmodwrite');
+
+Route::post('/admin/reviewmodadd',function(Request $req){
+    return ReviewController::reviewModifyWrite($req);
+})->name('reviewmodwrite');

@@ -14,7 +14,7 @@
     @section ('seccion')
     <h1>Dashboard Review</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
-    <table class="table">
+    <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -32,7 +32,7 @@
                 <td>{{$review->reviewDate}}</td>
                 <td>{{$review->reviewContent}}</td>
                 <td>{{$review->clientId}}</td>
-                <td><a href="{{ route('reviewform')}}" class="btn btn-warning">Modify</a></td>
+                <td><a href="/admin/reviewmod?reviewId={{$review->reviewId}}" class="btn btn-warning">Modify</a></td>
                 <td><a href="reviewDelete?reviewId={{$review->reviewId}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach
