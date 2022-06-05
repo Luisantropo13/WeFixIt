@@ -36,7 +36,7 @@
                 <td>{{$worker->workerName}}</td>
                 <td>{{$worker->workerEmail}}</td>
                 <td>{{$worker->workerPhone}}</td>
-                <td>{{$worker->workerAdres}}</td>
+                <td>{{$worker->workerAdress}}</td>
                 <td>{{$worker->workerBornDate}}</td>
                 <td>{{$worker->workerPlace}}</td>
                 <td>{{$worker->workerPhoto}}</td>

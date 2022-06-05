@@ -56,7 +56,7 @@ class ContactController extends Controller
             $data['workerPlace'],
             $data['workerPhoto']
         );
-        return redirect('/admin/worker');
+        return redirect('/admin/workers');
     }
 
     public static function clientModifyRead($id)
@@ -103,6 +103,6 @@ class ContactController extends Controller
             $data['workerPlace'],
             $data['workerPhoto']
         );
-        return redirect('/admin/worker');
+        return redirect('/admin/workers');
     }
 }
