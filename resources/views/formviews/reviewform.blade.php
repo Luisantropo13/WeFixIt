@@ -26,10 +26,16 @@
             <textarea name="reviewContent" class="form-control" rows="3"></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Client</label>
-            <input name="clientId" type="text" class="form-control" placeholder="Name">
+        <div>
+            <label for="cars">Client</label>
+            <select name="clientId" id="kachaou">
+                @foreach($clients as $client2)
+                    <option value="{{$client2->clientId}}">{{$client2->clientName}}</option>
+                @endforeach
+                
+            </select>
         </div>
+
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>
     @endsection

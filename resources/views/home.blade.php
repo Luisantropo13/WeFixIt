@@ -70,82 +70,20 @@
 
     <div class="container">
         <main>
-            <section id="productcar" class="car">
-                <h2>Product SlideShow</h2>
-
-                <div id="productcarousel" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="..." alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="..." alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="..." alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span style="color:black;" class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span style="color:black;" class="sr-only">Next</span>
-                    </a>
-                </div>
-            </section>
-
-            <section id="servicecar" class="car">
-                <h2>Service SlideShow</h2>
-
-                <div id="servicecarousel" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="..." alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="..." alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="..." alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span style="color:black;" class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span style="color:black;" class="sr-only">Next</span>
-                    </a>
-                </div>
-            </section>
-
             <div id="business">
-                <h2>Empresas</h2>
+                <h2>Popular Products</h2>
                 <div style="text-align:center;">
                     <div class="row fila">
 
-                        @foreach($business as $company)
-                        <div class="card col-3">
-                            <img class="card-img-top" src="{{$company->companyLogo}}" alt="Card image cap">
+                        @foreach($items as $item)
+                        <div class="card col-3" style="max-height:400px;">
+                            <img class="card-img-top" src="{{$item->productImg}}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    {{$company->companyName}}
+                                    {{$item->productModel}}
                                 </h5>
                                 <p class="card-text">
-                                    {{$company->companyDescription}}
+                                    {{$item->productDescription}}
                                 </p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>
@@ -154,6 +92,52 @@
                     </div>
                 </div>
             </div>
+
+            <!-- <div id="business">
+                <h2>New Services</h2>
+                <div style="text-align:center;">
+                    <div class="row fila">
+
+                        @foreach($items as $item)
+                        <div class="card col-3">
+                            <img class="card-img-top" src="{{$item->productImg}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{$item->productModel}}
+                                </h5>
+                                <p class="card-text">
+                                    {{$item->productDescription}}
+                                </p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <div id="business">
+                <h2>Offers</h2>
+                <div style="text-align:center;">
+                    <div class="row fila">
+
+                        @foreach($items as $item)
+                        <div class="card col-3">
+                            <img class="card-img-top" src="{{$item->productImg}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{$item->productModel}}
+                                </h5>
+                                <p class="card-text">
+                                    {{$item->productDescription}}
+                                </p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div> -->
 
             <div id="contact" class="row" style="padding:15px;">
                 <div class="col-3" id="data" style="background-color:black; color:white;">
@@ -180,7 +164,7 @@
             </div>
 
             <div id="reviewForm" style="background-color:black; width:100%; padding:15px;">
-                <div id="cuestionario" style=" color:white; ">
+                <!-- <div id="cuestionario" style=" color:white; ">
                     <form>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Email</label>
@@ -191,16 +175,7 @@
                             <label for="exampleFormControlInput1">Password</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Puntuation</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
+    
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Review</label>
@@ -208,13 +183,13 @@
                         </div>
 
                     </form>
-                </div>
+                </div> -->
 
                 <div id="reviews" style="color:white; text-align:center;">
                     <div class="row">
                         @foreach($reviews as $review)
-                        <div class="rev col-6">
-                            <span>{{$review->clientId}}</span>
+                        <div class="rev col-6" style="padding:5px;">
+                            <h4>{{$review->clientName}}</h4>
                             <p>{{$review->reviewContent}}</p>
                             <span>{{$review->reviewDate}}</span>
                         </div>

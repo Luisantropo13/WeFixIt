@@ -18,6 +18,11 @@ class Client extends Model
         return DB::select("SELECT * FROM clients WHERE clientId = '$id'")[0];
     }
 
+    public static function getAllClient(){
+        return DB::select("SELECT * FROM clients");
+    }
+
+
     public static function addClient($name,$email,$pass,$phone,$adress,$bornDate,$img){
         DB::insert("INSERT INTO clients (clientName, clientEmail, clientPass, clientPhone, clientAdress, clientBornDate, clientImg) 
                     VALUES ('$name', '$email', '$pass','$phone','$adress','$bornDate','$img')");

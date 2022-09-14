@@ -47,10 +47,10 @@
         <tbody>
             @foreach($bills as $bill)
             <tr>
-                <th scope="row">{{$bill->billId}}</th>
+                <td scope="row">{{$bill->billId}}</td>
                 <td>{{$bill->billDate}}</td>
                 <td>{{$bill->billPayment}}</td>
-                <td>{{$bill->clientId}}</td>
+                <td>{{$bill->clientName}}</td>
                 <td><a href="/admin/billmod?billId={{$bill->billId}}" class="btn btn-warning">Modify</a></td>
                 <td><a href="billDelete?billId={{$bill->billId}}" class="btn btn-danger">Delete</a></td>
             </tr>

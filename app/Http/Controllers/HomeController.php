@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $items = Product::all();
         $business = Company::all();  
-        $reviews = Review::all();
+        $reviews = Review::joinReview();
         return view('home',compact('items','business','reviews'));
     }
 
@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         $items = Product::all();
         $business = Company::all();  
-        $reviews = Review::all();
+        $reviews = Review::joinReview();
         return view('welcome',compact('items','business','reviews'));
     }
     

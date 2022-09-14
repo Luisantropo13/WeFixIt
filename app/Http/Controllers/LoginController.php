@@ -12,7 +12,10 @@ class LoginController extends Controller
     {
         $data = $req->input();
         if (Worker::islogin($data['workerEmail'], $data['workerPass'])) {
-            $req->session()->put('workerEmail', $data['workerEmail']);
+            // $req->session()->put('workerEmail', $data['workerEmail']);
+            // return view('dashboard',['session'=>$data['workerEmail']]);
+
+            $_SESSION["user"] = "1";
             return view('dashboard',['session'=>$data['workerEmail']]);
         }else{
             return redirect('login');

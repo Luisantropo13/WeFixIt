@@ -28,7 +28,7 @@ class Worker extends Model
 
     public static function addWorker($name,$email,$pass,$phone,$adress,$bornDate,$place,$img){
         DB::insert("INSERT INTO workers (workerName, workerEmail, workerPass, workerPhone, workerAdress, workerBornDate, workerPlace, workerPhoto) 
-                    VALUES ('$name', '$email', '$pass','$phone','$adress','$bornDate','$place'.'$img')");
+                    VALUES ('$name', '$email', '$pass','$phone','$adress','$bornDate','$place','$img')");
     }
 
     public static function modifyWorker($id,$name,$email,$pass,$phone,$adress,$bornDate,$place,$img){

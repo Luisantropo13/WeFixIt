@@ -85,6 +85,15 @@
                 </div>
             </div>
         </div>
+        <div>
+            <a href="{{ route('home')}}" class="btn btn-primary">Logout</a>
+            <?php
+                @session_start();
+                session_destroy();
+                header("Location: home");
+            ?>
+        </div>
+         
     </div>
     @endsection
 </body>

@@ -18,6 +18,11 @@ class Review extends Model
         return DB::select("SELECT * FROM reviews WHERE reviewId = '$id'")[0];
     }
 
+    public static function joinReview( ) 
+    {
+        return DB::select("SELECT * FROM reviews INNER JOIN clients ON reviews.clientId = clients.clientId order by reviews.reviewId" );
+    }
+
     public static function addReview($date,$content,$client){
         DB::insert("INSERT INTO reviews (reviewDate, reviewContent, clientId) 
                     VALUES ('$date', '$content', '$client')");

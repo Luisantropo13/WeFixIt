@@ -16,30 +16,29 @@
     <a href="{{ route('dashbill')}}" class="btn btn-primary">Go back</a>
     <form action="/admin/billAdd" method="POST">
         @csrf
+
         <div class="form-group">
             <label>Date</label>
-            <input name="billDate" type="date" class="form-control" placeholder="dd/mm/aaaa">
+            <input name="billDate" type="date" class="form-control">
         </div>
 
-        <div class="form-group">
-            <label>Payment Method</label>
-            <div class="form-check form-check-inline">
-                <input name="billPayment" class="form-check-input" type="checkbox" value="Paypal">
-                <label class="form-check-label" for="inlineCheckbox1">Paypal</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input name="billPayment" class="form-check-input" type="checkbox" value="Transfer">
-                <label class="form-check-label" for="inlineCheckbox1">Transfer</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input name="billPayment" class="form-check-input" type="checkbox" value="Others">
-                <label class="form-check-label" for="inlineCheckbox2">Others</label>
-            </div>
+        <div>
+            <label for="cars">Paymet Method</label>
+            <select name="billPayment" id="billPayment">
+                <option value="Paypal">Paypal</option>
+                <option value="Transfer">Transfer</option>
+                <option value="Others">Others</option>
+            </select>
         </div>
 
-        <div class="form-group">
-            <label>Client</label>
-            <input name="clientId" type="text" class="form-control" placeholder="Id number of Client">
+        <div>
+            <label for="cars">Client</label>
+            <select name="clientId" id="kachaou">
+                @foreach($clients as $client2)
+                    <option value="{{$client2->clientId}}">{{$client2->clientName}}</option>
+                @endforeach
+                
+            </select>
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Add</button>

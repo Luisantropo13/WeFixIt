@@ -17,7 +17,7 @@
     <form action="/admin/productAdd" method="POST">
         @csrf
         <div class="form-group">
-            <label for="exampleFormControlInput1">Model</label>
+            <label for="exampleFormControlInput1">Name</label>
             <input name="productModel" type="text" class="form-control" placeholder="Model Name">
         </div>
 
@@ -62,7 +62,7 @@
 
         <div class="form-group">
             <label class="form-label" for="customFile">File</label>
-            <input name="productImg" type="file" class="form-control" id="customFile" />
+            <input name="productImg" type="text" class="form-control" id="customFile" />
         </div>
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>

@@ -184,7 +184,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$item->productModel}}</h5>
                         <p class="card-text">{{$item->productDescription}}</p>
-                        <p class="card-text">{{$item->productPrice}}</p>
+                        <p class="card-text">{{$item->productPrice}}€</p>
                         <a href="#" class="btn btn-primary">Buy</a>
                     </div>
                 </div>

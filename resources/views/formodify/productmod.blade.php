@@ -64,7 +64,7 @@
 
         <div class="form-group">
             <label class="form-label" for="customFile">File</label>
-            <input name="productImg" type="file" class="form-control" id="customFile" value="{{$promod->productImg}}"/>
+            <input name="productImg" type="text" class="form-control" id="customFile" value="{{$promod->productImg}}"/>
         </div>
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>

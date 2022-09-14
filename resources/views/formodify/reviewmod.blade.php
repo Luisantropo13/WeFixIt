@@ -28,10 +28,19 @@
             <textarea name="reviewContent" class="form-control" rows="3" value="{{$revmod->reviewContent}}"></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Client</label>
-            <input name="clientId" type="text" class="form-control" placeholder="Name" value="{{$revmod->clientId}}">
+        <div>
+            <label for="cars">Client</label>
+            <select name="clientId" id="kachaou" value="{{$revmod->clientId}}">
+                @foreach($clients as $client2)
+                    <option value="{{$client2->clientId}}">{{$client2->clientName}}</option>
+                @endforeach
+                
+            </select>
+            <script>
+                        document.querySelector("#kachaou").value="{{$client->clientId}}";
+            </script>
         </div>
+
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>
     @endsection

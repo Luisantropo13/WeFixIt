@@ -4,14 +4,14 @@ use Illuminate\Http\Request;
 use App\HTTP\Controllers\ProductController;
 use App\HTTP\Controllers\BusinessController;
 use App\HTTP\Controllers\ContactController;
-use App\HTTP\Controllers\ServiceController;
 use App\HTTP\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
+
+session_start();
 
 // Views
 Route::get('/', function () {
@@ -87,14 +87,15 @@ Route::get('/admin/workers',function(){
     return ContactController::dashworker();
 })->name('dashworkers');
 
-//Add info part
+//This views show the formviews
 
 Route::get('/admin/addInfo',function(){
     return view('components/addinfo');
 })->name('addinfo');
 
 Route::get('/admin/addInfo/billAddInfo',function(){
-    return view('formviews/billform');
+    echo "Me cago en toh";
+    return BillController::billFormAdd();
 })->name('billform');
 
 Route::get('/admin/addInfo/clientAddInfo',function(){
@@ -110,7 +111,7 @@ Route::get('/admin/addInfo/productAddInfo',function(){
 })->name('productform');
 
 Route::get('/admin/addInfo/reviewAddInfo',function(){
-    return view('formviews/reviewform');
+    return ReviewController::reviewFormAdd();
 })->name('reviewform');
 
 Route::get('/admin/addInfo/serviceAddInfo',function(){
@@ -159,7 +160,7 @@ Route::get('admin/billDelete',function(Request $req){
 
 
 
-//ADDS
+//All this rutes really add info to de database
 Route::post('admin/companyAdd',function(Request $req){
     return BusinessController::companyAdd($req);
 });

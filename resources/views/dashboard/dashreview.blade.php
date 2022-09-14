@@ -31,7 +31,7 @@
                 <th scope="row">{{$review->reviewId}}</th>
                 <td>{{$review->reviewDate}}</td>
                 <td>{{$review->reviewContent}}</td>
-                <td>{{$review->clientId}}</td>
+                <td>{{$review->clientName}}</td>
                 <td><a href="/admin/reviewmod?reviewId={{$review->reviewId}}" class="btn btn-warning">Modify</a></td>
                 <td><a href="reviewDelete?reviewId={{$review->reviewId}}" class="btn btn-danger">Delete</a></td>
             </tr>

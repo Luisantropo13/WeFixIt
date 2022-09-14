@@ -10,12 +10,18 @@ class Bill extends Model
 {
     use HasFactory;
 
+    public static function joinBill( ) 
+    {
+        return DB::select("SELECT * FROM bills  INNER JOIN clients ON bills.clientId = clients.clientId order by bills.billId" );
+    }
+
     public static function billDelete($id){
         DB::delete("DELETE FROM bills WHERE billId = '$id'");
     }
 
     public static function getBillById($id){
         return DB::select("SELECT * FROM bills WHERE billId = '$id'")[0];
+        
     }
 
     public static function addBill($date,$payment,$client){
@@ -27,5 +33,10 @@ class Bill extends Model
         DB::update("UPDATE bills SET billId='$id', billDate='$date', 
                                         billPayment='$payment', clientId='$client' 
                                     WHERE billId='$id'");
+    }
+
+    public static function billClient($id){
+        $bill = Bill::getBillById($id);
+        return (Client::getClientById($bill->clientId));
     }
 }

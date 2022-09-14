@@ -23,25 +23,27 @@
             <input name="billDate" type="date" class="form-control" placeholder="name@example.com" value="{{$bilmod->billDate}}">
         </div>
 
-        <div class="form-group">
-            <label>Payment Method</label>
-            <div class="form-check form-check-inline">
-                <input name="billPayment" class="form-check-input" type="checkbox" value="Paypal">
-                <label class="form-check-label" for="inlineCheckbox1">Paypal</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input name="billPayment" class="form-check-input" type="checkbox" value="Transfer">
-                <label class="form-check-label" for="inlineCheckbox1">Transfer</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input name="billPayment" class="form-check-input" type="checkbox" value="Others">
-                <label class="form-check-label" for="inlineCheckbox2">Others</label>
-            </div>
+        <div>
+            <label for="cars">Paymet Method</label>
+            <select name="billPayment" id="billPayment">
+                <option value="Paypal">Paypal</option>
+                <option value="Transfer">Transfer</option>
+                <option value="Others">Others</option>
+            </select>
         </div>
 
-        <div class="form-group">
-            <label>Client</label>
-            <input name="clientId" type="text" class="form-control" value="{{$bilmod->clientId}}">
+        <div>
+            <label for="cars">Client</label>
+            <select name="clientId" id="kachaou" value="{{$bilmod->clientId}}">
+                @foreach($clients as $client2)
+                    <option value="{{$client2->clientId}}">{{$client2->clientName}}</option>
+                @endforeach
+                
+            </select>
+            <script>
+                        document.querySelector("#kachaou").value="{{$client->clientId}}";
+                        document.querySelector("#billPayment").value="{{$bilmod->billPayment}}";
+            </script>
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Add</button>
