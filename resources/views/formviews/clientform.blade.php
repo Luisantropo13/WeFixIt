@@ -18,41 +18,35 @@
         @csrf
         <div class="form-group">
             <label>Name</label>
-            <input name="clientName" type="text" class="form-control" placeholder="Name">
+            <input required name="clientName" type="text" class="form-control" placeholder="Name">
         </div>
 
         <div class="form-group">
             <label>Email</label>
-            <input name="clientEmail" type="email" class="form-control" placeholder="Email@email.com">
+            <input required name="clientEmail" type="email" class="form-control" placeholder="Email@email.com">
         </div>
 
         <div class="form-group">
             <label>Pass</label>
-            <input name="clientPass" type="password" class="form-control" placeholder="Pass">
+            <input required name="clientPass" type="password" class="form-control" placeholder="Pass">
         </div>
 
         <div class="form-group">
             <label>Phone</label>
-            <input name="clientPhone" type="text" class="form-control" placeholder="xxx xxx xxxx">
+            <input required name="clientPhone" type="text" class="form-control" placeholder="xxx xxx xxxx">
         </div>
 
         <div class="form-group">
             <label>Adress</label>
-            <input name="clientAdress" type="text" class="form-control" placeholder="Street Fake xxx">
+            <input required name="clientAdress" type="text" class="form-control" placeholder="Street Fake xxx">
         </div>
 
 
         <div class="it-datepicker-wrapper theme-dark">
             <div class="form-group">
-                <label>Date</label>
-                <input name="clientBornDate" class="form-control it-date-datepicker"  type="date" placeholder="dd/mm/aaaa">
+                <label>Birthday</label>
+                <input required name="clientBornDate" class="form-control it-date-datepicker"  type="date" placeholder="dd/mm/aaaa">
             </div>
-        </div>
-
-
-        <div class="form-group">
-            <label>Photo</label>
-            <input name="clientImg" type="file" class="form-control" id="customFile" />
         </div>
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>

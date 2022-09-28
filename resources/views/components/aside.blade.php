@@ -179,8 +179,9 @@
         <div style="text-align:center;">
             <div class="row fila">
                 @foreach($items as $item)
+
                 <div class="card col-3">
-                    <img class="card-img-top" src="{{$item->productImg}}" alt="Card image cap">
+                    <img class="card-img-top" src="media/uploaded_files/{{$item->imagenFoto}}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{$item->productModel}}</h5>
                         <p class="card-text">{{$item->productDescription}}</p>

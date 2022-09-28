@@ -20,7 +20,7 @@
     @section ('seccion')
     <h1>About Us</h1>
 
-    <main class="row">
+    <main class="row"  style=" background-image: url(/media/fakefondo.png); color:white; padding:10px;">
         <section class="col-12" style="padding:15px;">
             <h2>Description</h2>
             <div class="row">

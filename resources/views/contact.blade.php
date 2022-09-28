@@ -14,32 +14,24 @@
     @section ('seccion')
     <h1>Página de Contactos</h1>
     <main class="row" style="padding:15px;">
-        <section id="formu" class="col-12">
-            <form>
-                <!-- Name input -->
+        <section id="formu" class="col-12" style=" background-image: url(/media/fakefondo.png); color:white; padding:10px;">
+            <form method="post" action="contactMail">
+                @csrf
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form4Example1">Name</label>
-                    <input type="text" id="form4Example1" class="form-control" />
+                    <label class="form-label" for="form4Example1"><h3>Name</h3></label>
+                    <input name="subject" type="text" id="form4Example1" class="form-control" />
                 </div>
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form4Example2">Email address</label>
-                    <input type="email" id="form4Example2" class="form-control" />
+                    <label class="form-label" for="form4Example2"><h3>Email address</h3></label>
+                    <input  name="email" type="email" id="form4Example2" class="form-control" />
                 </div>
 
                 <!-- Message input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form4Example3">Message</label>
-                    <textarea class="form-control" id="form4Example3" rows="4" style="min-height:400px;"></textarea>
-                </div>
-
-                <!-- Checkbox -->
-                <div class="form-check d-flex justify-content-center mb-4">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
-                    <label class="form-check-label" for="form4Example4">
-                        Send me a copy of this message
-                    </label>
+                    <label class="form-label" for="form4Example3"><h3>Message</h3></label>
+                    <textarea name="content" class="form-control" id="form4Example3" rows="4" style="min-height:400px;"></textarea>
                 </div>
 
                 <!-- Submit button -->

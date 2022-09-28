@@ -14,6 +14,7 @@
     @section ('seccion')
     <h1>Dashboard Client</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
+    <a href="{{route('ClientPdf')}}" class="btn btn-secondary">Download PDF</a>
     <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
@@ -23,7 +24,6 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Adress</th>
                 <th scope="col">Born Date</th>
-                <th scope="col">Photo</th>
                 <th scope="col"> </th>
                 <th scope="col"><a href="{{ route('clientform')}}" class="btn btn-success">Add</a></th>
             </tr>
@@ -37,9 +37,8 @@
                 <td>{{$client->clientPhone}}</td>
                 <td>{{$client->clientAdress}}</td>
                 <td>{{$client->clientBornDate}}</td>
-                <td>{{$client->clientPhoto}}</td>
                 <td><a href="/admin/clientmod?clientId={{$client->clientId}}" class="btn btn-warning">Modify</a></td>
-                <td><a href="clientDelete?clientId={{$client->clientId}}" class="btn btn-danger">Delete</a></td>
+                <td><a onclick="return confirm('Seguro que quiere borrar?');" href="clientDelete?clientId={{$client->clientId}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach
         </tbody>

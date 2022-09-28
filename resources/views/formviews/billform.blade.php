@@ -19,12 +19,12 @@
 
         <div class="form-group">
             <label>Date</label>
-            <input name="billDate" type="date" class="form-control">
+            <input required  name="billDate" type="date" class="form-control" >
         </div>
 
         <div>
             <label for="cars">Paymet Method</label>
-            <select name="billPayment" id="billPayment">
+            <select required name="billPayment" id="billPayment" >
                 <option value="Paypal">Paypal</option>
                 <option value="Transfer">Transfer</option>
                 <option value="Others">Others</option>
@@ -33,7 +33,7 @@
 
         <div>
             <label for="cars">Client</label>
-            <select name="clientId" id="kachaou">
+            <select required name="clientId" id="kachaou" >
                 @foreach($clients as $client2)
                     <option value="{{$client2->clientId}}">{{$client2->clientName}}</option>
                 @endforeach

@@ -44,14 +44,6 @@
                     <a href="{{ route('dashproduct')}}" class="btn btn-primary">Go to Products Dashboard</a>
                 </div>
             </div>
-            <!-- <div class="card col-3">
-                <div class="card-body">
-                    <h2 class="card-title">
-                        Services
-                    </h2>
-                    <a href="{{ route('dashservice')}}" class="btn btn-primary">Go to Services Dashboard</a>
-                </div>
-            </div> -->
             <div class="card col-4">
                 <div class="card-body">
                     <h2 class="card-title">
@@ -85,15 +77,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a href="{{ route('home')}}" class="btn btn-primary">Logout</a>
-            <?php
-                @session_start();
-                session_destroy();
-                header("Location: home");
-            ?>
-        </div>
-         
+        
     </div>
     @endsection
 </body>

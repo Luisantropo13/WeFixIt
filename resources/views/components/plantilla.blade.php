@@ -9,6 +9,7 @@
     <link href="resources/css/header.css" rel="stylesheet">
     <title>Home</title>
 
+
     <style>
         * {
             box-sizing: border-box;
@@ -150,7 +151,21 @@
                         {
                             ?><a href="{{ route('login')}}" class="btn btn-outline-secondary">Login/Register</a><?php
                         } else {
-                            ?><a href="{{route('dashboard')}}" class="btn btn-outline-secondary">Profile</a><?php
+                                $out = "workerBoard";
+
+                                switch( $_SESSION["user"][ "rol"])
+                                {
+                                    case "Admin":
+                                            $out = "admin";
+                                    break;
+
+                                    case "client":
+                                            $out = "client";
+                                    break;
+
+                                }
+                            ?><a href="/<?php echo $out; ?>" class="btn btn-outline-secondary">Profile</a>
+                            <a style ="margin-left:5px;" href="{{route('logout')}}" class="btn btn-outline-secondary">Logout</a><?php
                         }
                         ?>
                     </form>
@@ -215,7 +230,6 @@
             <a>Legal Warning</a><br>
             <img> <!-- Imagen CopyRight-->
         </div>
-        
     </footer>
 
 </body>

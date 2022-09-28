@@ -13,6 +13,11 @@ class ContactController extends Controller
         return view('dashboard/dashclient',compact('clients'));
     }
 
+    public static function clientProfile(){
+        $clients = Client::clientProfileById($_SESSION['user']['id']);
+        return view('clientProfile', [ "clients" => $clients ] );
+    }
+
     public static function dashworker(){
         $workers = Worker::all();
         return view('dashboard/dashworkers',compact('workers'));
@@ -37,8 +42,7 @@ class ContactController extends Controller
             $data['clientPass'],
             $data['clientPhone'],
             $data['clientAdress'],
-            $data['clientBornDate'],
-            $data['clientImg']
+            $data['clientBornDate']
         );
         return redirect('/admin/client');
     }
@@ -53,8 +57,7 @@ class ContactController extends Controller
             $data['workerPhone'],
             $data['workerAdress'],
             $data['workerBornDate'],
-            $data['workerPlace'],
-            $data['workerPhoto']
+            $data['workerPlace']
         );
         return redirect('/admin/workers');
     }
@@ -83,8 +86,7 @@ class ContactController extends Controller
             $data['clientPass'],
             $data['clientPhone'],
             $data['clientAdress'],
-            $data['clientBornDate'],
-            $data['clientImg']
+            $data['clientBornDate']
         );
         return redirect('/admin/client');
     }
@@ -100,8 +102,7 @@ class ContactController extends Controller
             $data['workerPhone'],
             $data['workerAdress'],
             $data['workerBornDate'],
-            $data['workerPlace'],
-            $data['workerPhoto']
+            $data['workerPlace']
         );
         return redirect('/admin/workers');
     }

@@ -18,34 +18,34 @@
         @csrf
         <div class="form-group">
             <label>Name</label>
-            <input name="workerName" type="text" class="form-control" placeholder="name">
+            <input required name="workerName" type="text" class="form-control" placeholder="name">
         </div>
 
         <div class="form-group">
             <label >Email</label>
-            <input name="workerEmail" type="email" class="form-control" placeholder="example@example.com">
+            <input required name="workerEmail" type="email" class="form-control" placeholder="example@example.com">
         </div>
 
         <div class="form-group">
             <label >Pass</label>
-            <input name="workerPass" type="password" class="form-control" placeholder="pass">
+            <input required name="workerPass" type="password" class="form-control" placeholder="pass">
         </div>
 
         <div class="form-group">
             <label>Phone</label>
-            <input name="workerPhone" type="text" class="form-control" placeholder="+xx xxx xxx xxxx">
+            <input required name="workerPhone" type="text" class="form-control" placeholder="+xx xxx xxx xxxx">
         </div>
 
         <div class="form-group">
             <label>Adress</label>
-            <input name="workerAdress" type="text" class="form-control" placeholder="Street Example xxx">
+            <input required name="workerAdress" type="text" class="form-control" placeholder="Street Example xxx">
         </div>
 
 
         <div class="it-datepicker-wrapper theme-dark">
             <div class="form-group">
                 <label>Date</label>
-                <input name="workerBornDate" class="form-control it-date-datepicker" type="date" placeholder="dd/mm/aaaa">
+                <input required name="workerBornDate" class="form-control it-date-datepicker" type="date" placeholder="dd/mm/aaaa">
             </div>
         </div>
 
@@ -68,11 +68,6 @@
                 <label class="form-check-label" for="inlineCheckbox2">Repairman</label>
             </div>
 
-        </div>
-        
-        <div class="form-group">
-            <label>Photo</label>
-            <input name="workerPhoto" type="file" class="form-control" placeholder="Photo" />
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Add</button>

@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public static function home()
     {
-        $items = Product::all();
+        $items = Product::getAllProducts();
         $business = Company::all();  
         $reviews = Review::joinReview();
         return view('home',compact('items','business','reviews'));

@@ -49,12 +49,6 @@
                 <input name="clientBornDate" class="form-control it-date-datepicker"  type="date" placeholder="dd/mm/aaaa" value="{{$climod->clientBornDate}}">
             </div>
         </div>
-
-
-        <div class="form-group">
-            <label>Photo</label>
-            <input name="clientImg" type="file" class="form-control" id="customFile" value="{{$climod->clientImg}}"/>
-        </div>
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>
     @endsection

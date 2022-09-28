@@ -18,17 +18,17 @@
         @csrf
         <div class="form-group">
             <label for="exampleFormControlInput1">Date</label>
-            <input name="reviewDate" type="date" class="form-control" placeholder="dd/mm/aaaa">
+            <input required name="reviewDate" type="date" class="form-control" placeholder="dd/mm/aaaa">
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Content</label>
-            <textarea name="reviewContent" class="form-control" rows="3"></textarea>
+            <textarea required name="reviewContent" class="form-control" rows="3"></textarea>
         </div>
 
         <div>
             <label for="cars">Client</label>
-            <select name="clientId" id="kachaou">
+            <select required name="clientId" id="kachaou">
                 @foreach($clients as $client2)
                     <option value="{{$client2->clientId}}">{{$client2->clientName}}</option>
                 @endforeach

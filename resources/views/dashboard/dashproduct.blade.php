@@ -14,6 +14,7 @@
     @section ('seccion')
     <h1>Dashboard Product</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
+    <a href="{{route('ProductPdf')}}" class="btn btn-secondary">Download PDF</a>
     <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
@@ -42,7 +43,7 @@
                     <td>{{$product->productStock}}</td>
                     <td>{{$product->productImg}}</td>
                     <td><a href="/admin/productmod?productId={{$product->productId}}" class="btn btn-warning">Modify</a></td>
-                    <td><a href="productDelete?productId={{$product->productId}}" class="btn btn-danger">Delete</a></td>
+                    <td><a onclick="return confirm('Seguro que quiere borrar?')" href="productDelete?productId={{$product->productId}}" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach
             

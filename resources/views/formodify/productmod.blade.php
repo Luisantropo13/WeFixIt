@@ -14,7 +14,7 @@
     @section ('seccion')
     <h1>Add Info to Products</h1>
     <a href="{{ route('dashproduct')}}" class="btn btn-primary">Go back</a>
-    <form action="/admin/productmodadd" method="POST">
+    <form action="/admin/productmodadd" method="POST" enctype="multipart/form-data">
         @csrf
         <input name="productId" type="hidden" value="{{$promod->productId}}">
 
@@ -64,7 +64,8 @@
 
         <div class="form-group">
             <label class="form-label" for="customFile">File</label>
-            <input name="productImg" type="text" class="form-control" id="customFile" value="{{$promod->productImg}}"/>
+            <input name="productImg" type="file" class="form-control" id="customFile" />
+            <img style="height:100px; width:100px;" src="../media/uploaded_files/{{$promod->imagenFoto}}">
         </div>
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>

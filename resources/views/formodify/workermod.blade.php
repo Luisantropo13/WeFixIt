@@ -72,12 +72,6 @@
             </div>
         </div>
 
-
-        <div class="form-group">
-            <label>Photo</label>
-            <input name="workerPhoto" type="file" class="form-control" placeholder="Photo" value="{{$wormod->workerPhoto}}" />
-        </div>
-
         <button class="btn btn-primary btn-block" type="submit">Add</button>
     </form>
     @endsection

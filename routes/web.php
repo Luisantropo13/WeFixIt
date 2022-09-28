@@ -8,6 +8,12 @@ use App\HTTP\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\BillWorkerController;
+use App\Http\Controllers\PdfController;
+use App\Http\Controllers\Validator;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Models\Client;
 
 use Illuminate\Support\Facades\Route;
 
@@ -39,28 +45,44 @@ Route::get('/business', function () {
 })->name('business');
 
 
-Route::get('/admin',function(){
-    return view('dashboard');
+Route::get('/admin',function()
+{
+    return Validator::routerValidator( 
+        view('dashboard') ,     // Ruta ir.
+        redirect( "/" ),        // Si no cumple, ir aquí.
+        Validator::$ADMIN
+    );
+
 })->name('dashboard');
 
 //Login
 Route::get('/login', function () {
-    return view('login');
+    return view('login' , [ "login" => true ]);
 })->name('login');
 
-Route::post('workerLogin',[LoginController::class,'workerLogin']);
+Route::get('/logout', function () {
 
-Route::get('/logout',function(){
-    if(session()->has('worker')){
-        session()->pull('worker');
-    }
-   return redirect('home');
+    session_destroy( );
+    return redirect('/');
+
+})->name('logout');
+
+Route::post('/clientRegister',function(Request $req)
+{
+        return LoginController::clientRegister($req);
 });
+
+Route::post('workerLogin',[LoginController::class,'workerLogin']);
 
 //Dashboards parts
 
 Route::get('/admin/client',function(){
-    return ContactController::dashclient();
+    
+    return Validator::routerValidator( 
+        ContactController::dashclient() ,     // Ruta ir.
+        redirect( "/" ),        // Si no cumple, ir aquí.
+        Validator::$ADMIN
+    );
 })->name('dashclient');
 
 Route::get('/admin/bill',function(){
@@ -94,7 +116,6 @@ Route::get('/admin/addInfo',function(){
 })->name('addinfo');
 
 Route::get('/admin/addInfo/billAddInfo',function(){
-    echo "Me cago en toh";
     return BillController::billFormAdd();
 })->name('billform');
 
@@ -241,3 +262,92 @@ Route::post('/admin/productmodadd',function(Request $req){
 Route::post('/admin/reviewmodadd',function(Request $req){
     return ReviewController::reviewModifyWrite($req);
 })->name('reviewmodwrite');
+
+
+
+//Cliente
+Route::get('/client',function(){
+    return ContactController::clientProfile();
+})->name('client');
+
+
+//Trabajador
+Route::get('/workerBoard',function(){
+    return view('shop/workerBoard');
+})->name('workDash');
+
+Route::get('/productLine',function(Request $req){
+    return BillController::workerBillAdd($req);
+})->name('productLine');
+
+
+// Route::post('/productLineAdds',function(Request $req){
+        
+//     print_r( $_POST );
+
+// })->name('productLineAdds');
+
+
+Route::get('/billDashWork',function(){
+    return BillWorkerController::dashbill();
+})->name('dashbill2');
+
+Route::get('/billDashWork/add',function(){
+    return BillWorkerController::billFormAdd();
+})->name('billFormAdd2');
+
+Route::get('/billDashWork/delete',function(Request $req){
+    $data = $req->input();
+    return BillWorkerController::billDelete($data['billId']);
+})->name('billFormDel2');
+
+Route::post('/billDashWork/show',function(Request $req){
+    return BillWorkerController::billAdd($req);
+});
+
+Route::get('/billDashWork/modread',function(Request $req){
+    $bilmod = $req->input();
+    return BillWorkerController::billModifyRead($bilmod['billId']);
+})->name('modread');
+
+Route::post('/billDashWork/modwrite',function(Request $req){
+    return BillWorkerController::billModifyWrite($req);
+})->name('modwrite');
+
+//PDF
+
+Route::get('productPdf', [PdfController::class, 'productPdf'])->name('ProductPdf');
+Route::get('clientPdf', [PdfController::class, 'clientPdf'])->name('ClientPdf');
+Route::get('workerPdf', [PdfController::class, 'workerPdf'])->name('WorkerPdf');
+Route::get('billPdf', [PdfController::class, 'billPdf'])->name('BillPdf');
+Route::get('reviewPdf', [PdfController::class, 'reviewPdf'])->name('ReviewPdf');
+Route::get('companyPdf', [PdfController::class, 'companyPdf'])->name('CompanyPdf');
+
+Route::post( "pagarlosmondongos" , function( Request $req )
+{
+    return BillController::keepBill( $req );
+});
+
+Route::post('factura',function(Request $req){
+    return PdfController::factura($req);
+})->name('  ');
+
+
+//Mail
+
+Route::post('contactMail',function(Request $req)
+{
+    $data = $req->input( );
+
+    ContactMail::createMail( [
+        'title'   =>  "Wefixit2 Contacto",
+        'subject' => 'luiscabrerasantana@gmail.com', // A donde va.
+        'name'    => $data[ "subject" ],
+        'email'   => $data[ "email"],
+        'content' => $data[ "content"],
+        "view"    => 'PDF.correo'
+    ]);
+
+
+    return redirect( "contact" );
+});

@@ -42,7 +42,7 @@
                     <td>{{$product->productStock}}</td>
                     <td>{{$product->productImg}}</td>
                     <td><a href="/admin/productmod?productId={{$product->productId}}" class="btn btn-warning">Modify</a></td>
-                    <td><a href="productDelete?productId={{$product->productId}}" class="btn btn-danger">Delete</a></td>
+                    <td><a onclick="return confirm('Seguro que quiere borrar?')" href="productDelete?productId={{$product->productId}}" class="btn btn-danger">Delete</a></td>
                 </tr>
             @endforeach
             

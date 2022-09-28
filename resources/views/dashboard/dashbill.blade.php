@@ -32,8 +32,9 @@
     @section ('seccion')
     <h1>Dashboard Bill</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
+    <a href="{{route('BillPdf')}}" class="btn btn-secondary">Download PDF</a>
 
-    <table class="table" style="width:80vw; margin-left:-50px;" ">
+    <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -52,7 +53,7 @@
                 <td>{{$bill->billPayment}}</td>
                 <td>{{$bill->clientName}}</td>
                 <td><a href="/admin/billmod?billId={{$bill->billId}}" class="btn btn-warning">Modify</a></td>
-                <td><a href="billDelete?billId={{$bill->billId}}" class="btn btn-danger">Delete</a></td>
+                <td><a onclick="return confirm('Seguro que quiere borrar?')" href="billDelete?billId={{$bill->billId}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach
         </tbody>

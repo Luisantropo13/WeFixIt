@@ -14,6 +14,7 @@
     @section ('seccion')
     <h1>Dashboard Workers</h1>
     <a href="{{ route('dashboard')}}" class="btn btn-primary">Go back</a>
+    <a href="{{route('WorkerPdf')}}" class="btn btn-secondary">Download PDF</a>
     <table class="table" style="width:80vw; margin-left:-50px;">
         <thead>
             <tr>
@@ -24,7 +25,6 @@
                 <th scope="col">Adress</th>
                 <th scope="col">Born Date</th>
                 <th scope="col">Work Place</th>
-                <th scope="col">Photo</th>
                 <th scope="col"> </th>
                 <th scope="col"><a href="{{ route('workerform')}}" class="btn btn-success">Add</a></th>
             </tr>
@@ -39,9 +39,8 @@
                 <td>{{$worker->workerAdress}}</td>
                 <td>{{$worker->workerBornDate}}</td>
                 <td>{{$worker->workerPlace}}</td>
-                <td>{{$worker->workerPhoto}}</td>
                 <td><a href="/admin/workermod?workerId={{$worker->workerId}}" class="btn btn-warning">Modify</a></td>
-                <td><a href="workerDelete?workerId={{$worker->workerId}}" class="btn btn-danger">Delete</a></td>
+                <td><a onclick="return confirm('Seguro que quiere borrar?')" href="workerDelete?workerId={{$worker->workerId}}" class="btn btn-danger">Delete</a></td>
             </tr>
             @endforeach
         </tbody>

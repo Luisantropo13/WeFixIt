@@ -18,32 +18,32 @@
         @csrf
         <div class="form-group">
             <label for="exampleFormControlInput1">Name</label>
-            <input name="companyName" type="text" class="form-control" placeholder="Name">
+            <input required name="companyName" type="text" class="form-control" placeholder="Name">
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlInput1">Adress</label>
-            <input name="companyAdress" type="email" class="form-control" placeholder="example@example.com">
+            <label for="exampleFormControlInput1">Address</label>
+            <input required name="companyAdress" type="text" class="form-control" placeholder="Example Street 123">
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlInput1">Phone</label>
-            <input name="companyPhone" type="text" class="form-control" placeholder="XXX XXX XXXX">
+            <input required name="companyPhone" type="text" class="form-control" placeholder="XXX XXX XXXX">
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlInput1">Web</label>
-            <input name="companyWeb" type="url" class="form-control" placeholder="Web">
+            <input required name="companyWeb" type="url" class="form-control" placeholder="Web">
         </div>
 
         <div class="form-group">
             <label>Description</label>
-            <textarea name ="companyDescription" class="form-control" rows="3"></textarea>
+            <textarea required name ="companyDescription" class="form-control" rows="3"></textarea>
         </div>
 
         <div class="form-group">
             <label for="exampleFormControlInput1">Logo</label>
-            <input name="companyLogo" type="url" class="form-control" placeholder="Logo">
+            <input required name="companyLogo" type="url" class="form-control" placeholder="Logo">
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Add</button>

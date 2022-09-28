@@ -75,20 +75,25 @@
                 <div style="text-align:center;">
                     <div class="row fila">
 
+                       <?php  $i = 0; ?>
                         @foreach($items as $item)
-                        <div class="card col-3" style="max-height:400px;">
-                            <img class="card-img-top" src="{{$item->productImg}}" alt="Card image cap">
+
+                        <?php
+                        if( $i++ >3 )
+                            continue;
+                        ?>
+
+                        <div class="card col-3">
+                            <img class="card-img-top" src="media/uploaded_files/{{$item->imagenFoto}}" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    {{$item->productModel}}
-                                </h5>
-                                <p class="card-text">
-                                    {{$item->productDescription}}
-                                </p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title">{{$item->productModel}}</h5>
+                                <p class="card-text">{{$item->productDescription}}</p>
+                                <p class="card-text">{{$item->productPrice}}€</p>
+                                <a href="#" class="btn btn-primary">Buy</a>
                             </div>
                         </div>
                         @endforeach
+
                     </div>
                 </div>
             </div>
@@ -139,8 +144,8 @@
                 </div>
             </div> -->
 
-            <div id="contact" class="row" style="padding:15px;">
-                <div class="col-3" id="data" style="background-color:black; color:white;">
+            <div id="contact" class="row"  style=" background-image: url(/media/fakefondo.png); color:white; padding:10px; margin-bottom:30px;">
+                <div class="col-3" id="data">
                     <div id="businessinfo">
                         <h5> Information</h5><br>
                         <span>
@@ -185,9 +190,15 @@
                     </form>
                 </div> -->
 
-                <div id="reviews" style="color:white; text-align:center;">
+                <div id="reviews"  style=" background-image: url(/media/fakefondo.png); color:white; padding:10px;">
                     <div class="row">
+                    <?php  $i = 0; ?>
                         @foreach($reviews as $review)
+                        <?php
+                        if( $i++ >3 )
+                            continue;
+                        ?>
+    
                         <div class="rev col-6" style="padding:5px;">
                             <h4>{{$review->clientName}}</h4>
                             <p>{{$review->reviewContent}}</p>

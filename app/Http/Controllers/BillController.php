@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Bill;
 use App\Models\Client;
+use App\Models\Product;
 
 
 class BillController extends Controller
@@ -50,7 +51,7 @@ class BillController extends Controller
             $data['billPayment'],
             $data['clientId']
         );
-        return redirect('/admin/bill');
+        return redirect('/billDashWork');
     }
 
     public static function billFormAdd(){
@@ -60,4 +61,25 @@ class BillController extends Controller
         ]);
     }
     
+
+    public static function keepBill( Request $req ) 
+    {
+        $data = $req->input();
+         Bill::addBill( $data[ "billDate"], $data[ "billPayment" ] , $data[ "clientId" ] );
+
+         return redirect( "workerBoard" );
+    }
+
+    public static function workerBillAdd(Request $req)
+    {
+        return view('shop/producLineBoard',[ "clients" => Bill::joinBill()], [ "products" => Product::getAllProducts()] );
+
+        $data = $req->input();
+        Bill::addBill(
+            $data['billDate'],
+            $data['billPayment'],
+            $data['clientId']
+        );
+         
+    }
 }
